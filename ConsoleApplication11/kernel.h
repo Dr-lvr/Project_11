@@ -24,7 +24,7 @@ private:
 	{'k', alpha::K}, {'l', alpha::L}, {'m', alpha::M}, {'n', alpha::N}, {'o', alpha::O},
 	{'p', alpha::P}, {'q', alpha::Q}, {'r', alpha::R}, {'s', alpha::S}, {'t', alpha::T},
 	{'u', alpha::U}, {'v', alpha::V}, {'w', alpha::W}, {'x', alpha::X}, {'y', alpha::Y},
-	{'z', alpha::Z}, {' ', alpha::SP},
+	{'z', alpha::Z}, {' ', alpha::SP}
 	};
 };
 

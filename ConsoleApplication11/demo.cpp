@@ -1,5 +1,12 @@
 #include "demo.h"
 #include "kernel.h"
+#include "engine.h"
+#include <string>
+
+void demo::engine_demo(std::string str) {
+	engine e;
+	e.get_macro(str);
+}
 void demo::amazon_demo() {
 	kernel bot;
 	bot.move(870, 66);
@@ -37,4 +44,23 @@ void demo::wikipedia_demo() {
 	bot.click();
 	bot.move(18, 62);
 	bot.click();
+}
+void demo::sendemail_demo() {
+	kernel bot;
+	bot.move(533, 743);
+	bot.click();
+	bot.move(870, 66);
+	bot.click();
+	bot.echo("yahoo");
+	bot.move(1090, 65);
+	bot.click();
+	bot.move(218, 526);
+	bot.click();
+	bot.move(218, 424);
+	bot.click();
+	bot.move(75, 240);
+	bot.click();
+	bot.move(378, 243);
+	bot.click();
+	bot.echo("dr_lvr_mail@yahoo.it");
 }

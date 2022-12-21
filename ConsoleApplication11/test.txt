@@ -1,0 +1,14 @@
+move 525 744
+click
+move 953 64
+click
+echo "amazon"
+move 1094 65
+click
+move 254 339
+click
+move 480 143
+click
+echo "libri fantasy horror"
+move 1049 142
+click
