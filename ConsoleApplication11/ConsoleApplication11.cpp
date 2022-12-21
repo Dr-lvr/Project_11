@@ -3,5 +3,8 @@
 #include "demo.h"
 #include <iostream>
 int main(){
-	demo::engine_demo("test.txt");
+	std::string path;
+	std::cout << "Insert path: " << std::endl;
+	std::cin >> path;
+	demo::engine_demo(path);
 }
