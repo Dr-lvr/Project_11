@@ -12,14 +12,14 @@ void engine::get_macro(std::string arg) {
     std::filesystem::current_path();
     std::fstream file_reader;
     std::string executable = "scripts/" + arg;
-    file_reader.open(executable, std::ios::in);        //open a file to perform read operation using file object
-    if (file_reader.is_open()) {                //checking whether the file is open
+    file_reader.open(executable, std::ios::in);         //open a file to perform read operation using file object
+    if (file_reader.is_open()) {                        //checking whether the file is open
         std::string tp;
-        while (getline(file_reader, tp)) {      //read data from file object and put it into string.
+        while (getline(file_reader, tp)) {              //read data from file object and put it into string.
             if (tp == "") continue;
-            interpret(tp);                      //print the data of the string
+            interpret(tp);                              //print the data of the string
         }
-        file_reader.close();                    //close the file object.
+        file_reader.close();                            //close the file object.
     }
     else {
         std::cout << "The file don't exists" << std::endl;
