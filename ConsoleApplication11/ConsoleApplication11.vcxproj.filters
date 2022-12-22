@@ -27,6 +27,15 @@
     <ClCompile Include="engine.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="uix.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="editor.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="legacy.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kernel.h">
@@ -36,6 +45,18 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="engine.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="uix.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="editor.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="legacy.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

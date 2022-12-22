@@ -129,13 +129,20 @@
   <ItemGroup>
     <ClCompile Include="ConsoleApplication11.cpp" />
     <ClCompile Include="demo.cpp" />
+    <ClCompile Include="editor.cpp" />
+    <ClCompile Include="legacy.cpp" />
+    <ClCompile Include="uix.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="kernel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demo.h" />
+    <ClInclude Include="editor.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="kernel.h" />
+    <ClInclude Include="legacy.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="uix.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt" />

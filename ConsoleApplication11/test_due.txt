@@ -1,0 +1,5 @@
+move 525 744
+click
+move 953 64
+click
+echo "amazon"

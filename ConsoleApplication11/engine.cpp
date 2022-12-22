@@ -13,6 +13,7 @@ void engine::get_macro(std::string arg) {
     if (file_reader.is_open()) {                //checking whether the file is open
         std::string tp;
         while (getline(file_reader, tp)) {      //read data from file object and put it into string.
+            if (tp == "") continue;
             interpret(tp);                      //print the data of the string
         }
         file_reader.close();                    //close the file object.
