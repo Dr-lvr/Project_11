@@ -1,5 +1,6 @@
 # ConsoleApplication11
 TODO RELEASE ALPHA 0.0x
+
 0. ASM: add some operators and loops
 1. UIX: batch execution of scripts
 2. GUI: first interface for wrap the program and manage local version
