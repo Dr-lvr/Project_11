@@ -1,5 +1,8 @@
 # ConsoleApplication11
-TODO RELEASE ALPHA 0.01
-1. uix:     add existing files list and add the possibility of choice
-2. editor:  remove the first void row in generate txt
-3. review:  do the code reviwe and test in release mode
+TODO RELEASE ALPHA 0.0x
+0. ASM: add some operators and loops
+1. UIX: batch execution of scripts
+2. GUI: first interface for wrap the program and manage local version
+3. vocal_recog: start sampling for batch (optional)
+4. machine_view: start sampling for conditional programming
+5. filesystem and processes: start process monitoring and filesystem hilevel control 
