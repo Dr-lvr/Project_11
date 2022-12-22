@@ -1,8 +1,11 @@
+#include <filesystem>
+#include <iostream>
+#include <string>
+
 #include "uix.h"
 #include "editor.h"
 #include "demo.h"
-#include <iostream>
-#include <string>
+
 void uix::get_choice() {
     int scelta;
     system("cls");
@@ -43,6 +46,7 @@ void uix::print_menu(int n) {
         std::cout << "2\t"
             << "Esegui una macro"
             << std::endl;
+        map_macro();
         demo::exec_macro();
         get_choice();
         return;
@@ -62,5 +66,14 @@ void uix::print_menu(int n) {
         return;
     default:
         return;
+    }
+}
+void uix::map_macro() {
+    system("cls");
+    std::filesystem::current_path();
+    std::string path = "scripts";
+    int index = 0;
+    for (const auto& entry : std::filesystem::directory_iterator(path)) {
+        std::cout << ++index << "\t" << entry.path().filename() << std::endl;
     }
 }

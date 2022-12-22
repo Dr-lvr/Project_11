@@ -7,4 +7,3 @@ public:
 	static void engine_demo(std::string arg);
 	static void edit_demo();
 };
-
