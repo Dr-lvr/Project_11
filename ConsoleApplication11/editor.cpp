@@ -25,7 +25,7 @@ void editor::edit_file() {
 	MyFile.close();
 	while (1) {
 		program = "";
-		std::ofstream MyFile(filename, std::ios::app);
+		std::ofstream MyFile(save_in, std::ios::app);
 		std::getline(std::cin, program);
 		if (program == "end") {
 			MyFile.close();
