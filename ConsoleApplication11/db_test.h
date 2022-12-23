@@ -2,6 +2,6 @@
 static class db_test
 {
 public:
-	static void test_db();
+	static void test_ascii();
 };
 

@@ -1,1 +1,6 @@
 
+move 972 18
+click
+move 763 65
+click
+echo "ciao sono davide dr_lvr_mail@yahoo.it 0123456789"

@@ -4,8 +4,8 @@
 #include "uix.h"
 #include "db_test.h"
 int main(){
-	//uix menu;
-	//menu.get_choice();
-	db_test a;
-	a.test_db();
+	uix menu;
+	menu.get_choice();
+	//db_test a;
+	//a.test_ascii();
 }

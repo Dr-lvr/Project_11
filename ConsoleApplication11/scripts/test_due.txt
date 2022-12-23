@@ -1,0 +1,6 @@
+
+move 586 378
+click
+echo amazon
+move 1062 65
+click

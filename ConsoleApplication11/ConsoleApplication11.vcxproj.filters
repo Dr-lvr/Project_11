@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="FileData">
+      <UniqueIdentifier>{f86a71bf-ec43-4b5b-a5b9-a49c57c2480f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication11.cpp">
@@ -34,7 +37,7 @@
       <Filter>File di origine</Filter>
     </ClCompile>
     <ClCompile Include="db_test.cpp">
-      <Filter>File di origine</Filter>
+      <Filter>FileData</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,7 +57,7 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="db_test.h">
-      <Filter>File di intestazione</Filter>
+      <Filter>FileData</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

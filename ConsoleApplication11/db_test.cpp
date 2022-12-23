@@ -14,7 +14,7 @@ const string server = "127.0.0.1:3306";
 const string username = "root";
 const string password = "";
 
-void db_test::test_db() {
+void db_test::test_ascii() {
     sql::Driver* driver;
     sql::Connection* con;
     sql::Statement* stmt;
@@ -27,54 +27,31 @@ void db_test::test_db() {
     }
     catch (sql::SQLException e)
     {
-        cout << "Could not connect to server. Error message: " << e.what() << endl;
+        std::cout << "Could not connect to server. Error message: " << e.what() << endl;
         system("pause");
         exit(1);
     }
-    //please create database "quickstartdb" ahead of time
-    //con->setSchema("quickstartdb");
-
     stmt = con->createStatement();
-    stmt->execute("USE test_db");
-    stmt->execute("DROP TABLE IF EXISTS test");
-    stmt->execute("CREATE TABLE test(id INT, label CHAR(1))");
-    stmt->execute("INSERT INTO test(id, label) VALUES (1, 'a')");
+    stmt->execute("USE project_11");
+
     sql::ResultSet* res;
-    // ...
     stmt = con->createStatement();
-    // ...
 
-    res = stmt->executeQuery("SELECT * FROM test ORDER BY id ASC");
+    res = stmt->executeQuery("SELECT * FROM ascii");
+    std::cout << "|DEC";
+    std::cout << "|HEX";
+    std::cout << "|CPP";
+    std::cout << "|COD";
+    std::cout << "|DESC" << endl;
     while (res->next()) {
-        // You can use either numeric offsets...
-        cout << "id = " << res->getInt(1); // getInt(1) returns the first column
-        // ... or column names for accessing results.
-        // The latter is recommended.
-        cout << ", label = '" << res->getString("label") << "'" << endl;
+        std::cout << "|" << res->getString("DEC");
+        std::cout << "|" << res->getString("HEX");
+        std::cout << "|" << res->getString("CPP");
+        std::cout << "|" << res->getString("COD");
+        std::cout << "|" << res->getString("DESC") << "|" << std::endl;
     }
-
     delete res;
     delete stmt;
     delete con;
-    /*
-    pstmt = con->prepareStatement("INSERT INTO inventory(name, quantity) VALUES(?,?)");
-    pstmt->setString(1, "banana");
-    pstmt->setInt(2, 150);
-    pstmt->execute();
-    cout << "One row inserted." << endl;
-
-    pstmt->setString(1, "orange");
-    pstmt->setInt(2, 154);
-    pstmt->execute();
-    cout << "One row inserted." << endl;
-
-    pstmt->setString(1, "apple");
-    pstmt->setInt(2, 100);
-    pstmt->execute();
-    cout << "One row inserted." << endl;
-
-    delete pstmt;
-    
-    */
     system("pause");
 }
