@@ -1,8 +1,10 @@
 #include "demo.h"
 #include "engine.h"
 #include "editor.h"
+
 #include <iostream>
 #include <string>
+
 
 void demo::exec_macro() {
 	std::string path;

@@ -2,8 +2,10 @@
 //
 #include "demo.h"
 #include "uix.h"
-#include <iostream>
+#include "db_test.h"
 int main(){
-	uix menu;
-	menu.get_choice();
+	//uix menu;
+	//menu.get_choice();
+	db_test a;
+	a.test_db();
 }

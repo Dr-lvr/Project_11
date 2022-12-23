@@ -1,7 +1,9 @@
-#include "kernel.h"
 #include <Windows.h>
 #include <string>
 #include <map>
+
+#include "kernel.h"
+
 void kernel::move(int x, int y) {
 	SetCursorPos(x, y);
 	Sleep(1000);
