@@ -10,5 +10,5 @@ TODO RELEASE ALPHA 0.0x
 6. dictionary: cplete symbols table for dictionary
 7. UIX: edit existing file
 8. UIX: enable sub-directoring
-OK --->  9. INPUT: input insertion improved
-OK ---> 10. DATABASE: database tested and connected
+9. INPUT: input insertion improved ---> OK
+10. DATABASE: database tested and connected ---> OK
