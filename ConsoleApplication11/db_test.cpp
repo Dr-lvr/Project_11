@@ -9,7 +9,7 @@
 #include <cppconn/prepared_statement.h>
 using namespace std;
 
-//for demonstration only. never save your password in the code!
+//DATABASE TEST
 const string server = "127.0.0.1:3306";
 const string username = "root";
 const string password = "";

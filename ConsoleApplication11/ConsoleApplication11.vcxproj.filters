@@ -13,14 +13,23 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="FileData">
+    <Filter Include="Bootstrap">
+      <UniqueIdentifier>{e2844125-0ed3-402f-a285-9225d6be8714}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di risorse\FileData">
       <UniqueIdentifier>{f86a71bf-ec43-4b5b-a5b9-a49c57c2480f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di risorse\Machine_view">
+      <UniqueIdentifier>{705face0-f8ae-4e9c-bca6-62aa4640335c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIX">
+      <UniqueIdentifier>{5b74480c-79b4-456d-8d72-aa6709bd452f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di risorse\GUI">
+      <UniqueIdentifier>{eca3f200-b241-4b88-a0d1-3cc573ed76cc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleApplication11.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="kernel.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
@@ -30,14 +39,20 @@
     <ClCompile Include="engine.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="uix.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="editor.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
     <ClCompile Include="db_test.cpp">
-      <Filter>FileData</Filter>
+      <Filter>File di risorse\FileData</Filter>
+    </ClCompile>
+    <ClCompile Include="machine_view_test.cpp">
+      <Filter>File di risorse\Machine_view</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleApplication11.cpp">
+      <Filter>Bootstrap</Filter>
+    </ClCompile>
+    <ClCompile Include="uix.cpp">
+      <Filter>UIX</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,19 +65,17 @@
     <ClInclude Include="engine.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="uix.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="editor.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="db_test.h">
-      <Filter>FileData</Filter>
+      <Filter>File di risorse\FileData</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="test.txt">
-      <Filter>File di risorse</Filter>
-    </Text>
+    <ClInclude Include="machine_view_test.h">
+      <Filter>File di risorse\Machine_view</Filter>
+    </ClInclude>
+    <ClInclude Include="uix.h">
+      <Filter>UIX</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

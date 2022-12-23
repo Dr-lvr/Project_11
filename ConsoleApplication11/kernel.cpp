@@ -16,8 +16,6 @@ void kernel::echo(std::string str) {
     std::wstring msg;
     std::wstring wsTmp(str.begin(), str.end());
     msg = wsTmp;
-    //or std::string msg = "ABCD - abcd - 1234";
-
     std::vector<INPUT> vec;
     for (auto ch : msg)
     {
