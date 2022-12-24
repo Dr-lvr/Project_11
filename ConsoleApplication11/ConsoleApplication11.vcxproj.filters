@@ -45,14 +45,14 @@
     <ClCompile Include="db_test.cpp">
       <Filter>File di risorse\FileData</Filter>
     </ClCompile>
-    <ClCompile Include="machine_view_test.cpp">
-      <Filter>File di risorse\Machine_view</Filter>
-    </ClCompile>
     <ClCompile Include="ConsoleApplication11.cpp">
       <Filter>Bootstrap</Filter>
     </ClCompile>
     <ClCompile Include="uix.cpp">
       <Filter>UIX</Filter>
+    </ClCompile>
+    <ClCompile Include="gui.cpp">
+      <Filter>File di risorse\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,11 +71,11 @@
     <ClInclude Include="db_test.h">
       <Filter>File di risorse\FileData</Filter>
     </ClInclude>
-    <ClInclude Include="machine_view_test.h">
-      <Filter>File di risorse\Machine_view</Filter>
-    </ClInclude>
     <ClInclude Include="uix.h">
       <Filter>UIX</Filter>
+    </ClInclude>
+    <ClInclude Include="gui.h">
+      <Filter>File di risorse\GUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
