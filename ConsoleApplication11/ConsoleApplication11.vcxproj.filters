@@ -54,6 +54,9 @@
     <ClCompile Include="gui.cpp">
       <Filter>File di risorse\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="machine_view.cpp">
+      <Filter>File di risorse\Machine_view</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kernel.h">
@@ -76,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="gui.h">
       <Filter>File di risorse\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="machine_view.h">
+      <Filter>File di risorse\Machine_view</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -140,6 +140,7 @@
     <ClCompile Include="demo.cpp" />
     <ClCompile Include="editor.cpp" />
     <ClCompile Include="gui.cpp" />
+    <ClCompile Include="machine_view.cpp" />
     <ClCompile Include="uix.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="kernel.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="engine.h" />
     <ClInclude Include="gui.h" />
     <ClInclude Include="kernel.h" />
+    <ClInclude Include="machine_view.h" />
     <ClInclude Include="uix.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
