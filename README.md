@@ -4,7 +4,7 @@ TODO RELEASE ALPHA 0.0x
 - [ ] ASSEMBLY:     add some operators and loops
 - [x] DATABASE:     database sample connected and tested
 - [ ] DATABASE:     design first RDBTest 
-- [-] DICTIONARY:   complete symbols table for dictionary
+- [ ] DICTIONARY:   <del>complete symbols table for dictionary</del>
 - [x] DICTIONARY:   improved string to send input translation
 - [ ] FILESYSTEM:   environment monitor and filesystem hilevel control [OPTIONAL]
 - [ ] FILESYSTEM:   enable sub-directoring
