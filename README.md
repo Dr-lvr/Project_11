@@ -5,13 +5,11 @@ TODO RELEASE ALPHA 0.0x
 1. UIX: batch execution of scripts
 2. GUI: first interface for wrap the program and manage local version
 3. vocal_recog: start sampling for batch (optional)
-
 4. machine_view: start sampling for conditional programming
-4a. added method for handle windows frame to cv::Mat
-4b. added main method for parse frames find matches and evaluate histograms
-4c. added method for create and display histograms
-4d. added bootstrap
-
+-a. added method for handle windows frame to cv::Mat
+-b. added main method for parse frames find matches and evaluate histograms
+-c. added method for create and display histograms
+-d. added bootstrap
 5. filesystem and processes: start process monitoring and filesystem hilevel control
 6. dictionary: cplete symbols table for dictionary
 7. UIX: edit existing file
