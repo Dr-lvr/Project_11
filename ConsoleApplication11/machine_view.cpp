@@ -67,7 +67,7 @@ cv::Mat machine_view::hwnd2mat(HWND hwnd){
 cv::Mat machine_view::machine_vision(cv::Mat src) {
 
     kernel k;
-    const std::string img2 = "C:/Users/david/Desktop/test/dieci.jpg";
+    const std::string img2 = "C:/Users/david/Desktop/test/git.jpg";
     cv::Mat screen=src;
     cv::Mat cvt = cv::imread(img2, cv::IMREAD_COLOR);
     cv::Mat tmp;
