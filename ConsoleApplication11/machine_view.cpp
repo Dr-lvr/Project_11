@@ -64,7 +64,7 @@ cv::Mat machine_view::hwnd2mat(HWND hwnd){
 
     return src;
 }
-cv::Mat machine_view::machine_view_test(cv::Mat src) {
+cv::Mat machine_view::machine_vision(cv::Mat src) {
 
     kernel k;
     const std::string img2 = "C:/Users/david/Desktop/test/dieci.jpg";
@@ -180,7 +180,6 @@ void machine_view::show_match_histogram(std::string tmp_name, cv::Mat tmp) {
     //cv::imshow("Source image", src);
     cv::imshow(tmp_name, histImage);
     //cv::waitKey();
-    //return cv::EXIT_SUCCESS;
 }
 void machine_view::start_view() {
     HWND hwndDesktop = GetDesktopWindow();
@@ -194,7 +193,7 @@ void machine_view::start_view() {
         // you can do some image processing here
         if (key == 'a') {
             try {
-                src = machine_view_test(src);
+                src = machine_vision(src);
             }
             catch (const std::exception& ex) {
                 std::cout << ex.what() << std::endl;
