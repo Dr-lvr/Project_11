@@ -67,16 +67,16 @@ cv::Mat machine_view::hwnd2mat(HWND hwnd){
 cv::Mat machine_view::machine_vision(cv::Mat src) {
 
     kernel k;
-    const std::string img2 = "C:/Users/david/Desktop/test/git.jpg";
+    //! [load_images]
+    const std::string img2 = "C:/Users/david/Desktop/test/howl.jpg";
     cv::Mat screen=src;
     cv::Mat cvt = cv::imread(img2, cv::IMREAD_COLOR);
+    //! [load_images]
+    //! [convert2depth24]
     cv::Mat tmp;
     cv::cvtColor(cvt, tmp, cv::COLOR_BGR2BGRA);
 
-    //! [load_image]
-
     //! [create_windows]
-    /// Create windows
     cv::namedWindow(image_window, cv::WINDOW_AUTOSIZE);
     cv::namedWindow(result_window, cv::WINDOW_AUTOSIZE);
 
@@ -89,7 +89,6 @@ cv::Mat machine_view::machine_vision(cv::Mat src) {
     //! [copy_source]
 
     //! [create_result_matrix]
-    /// Create the result matrix
     int result_cols = screen.cols - tmp.cols + 1;
     int result_rows = screen.rows - tmp.rows + 1;
 
@@ -105,7 +104,7 @@ cv::Mat machine_view::machine_vision(cv::Mat src) {
         //! [normalize]
 
         //! [best_match]
-        /// Localizing the best match with minMaxLoc
+        /// localizing the best match with minMaxLoc
         double minVal; double maxVal; cv::Point minLoc; cv::Point maxLoc;
         cv::Point matchLoc;
         minMaxLoc(res, &minVal, &maxVal, &minLoc, &maxLoc, cv::Mat());
@@ -118,11 +117,9 @@ cv::Mat machine_view::machine_vision(cv::Mat src) {
         {
             matchLoc = maxLoc;
         }
-
         //! [match_loc]
 
         //! [imshow]
-        /// Show me what you got
         rectangle(img_display, matchLoc, cv::Point(matchLoc.x + tmp.cols, matchLoc.y + tmp.rows), cv::Scalar(0, 255, 9), 2, 8, 0);
         rectangle(res, matchLoc, cv::Point(matchLoc.x + tmp.cols, matchLoc.y + tmp.rows), cv::Scalar(0, 255, 9), 2, 8, 0);
 
@@ -130,9 +127,8 @@ cv::Mat machine_view::machine_vision(cv::Mat src) {
         cv::Mat submat = cv::Mat(img_display, cv::Rect(matchLoc, cv::Point(matchLoc.x + tmp.cols, matchLoc.y + tmp.rows)));
         show_match_histogram(std::to_string(i), submat);
 
-        //if submat ok move
+        //....if submat ok move
         k.move((matchLoc.x+(matchLoc.x + tmp.cols))/2, (matchLoc.y+(matchLoc.y + tmp.rows))/2);
-        //k.move(matchLoc.x + tmp.cols, matchLoc.y + tmp.rows);
     }
     imshow(image_window, img_display);
     imshow(result_window, res);
@@ -177,7 +173,6 @@ void machine_view::show_match_histogram(std::string tmp_name, cv::Mat tmp) {
             cv::Point(bin_w * (i), hist_h - cvRound(r_hist.at<float>(i))),
             cv::Scalar(0, 0, 255), 2, 8, 0);
     }
-    //cv::imshow("Source image", src);
     cv::imshow(tmp_name, histImage);
     //cv::waitKey();
 }
@@ -190,7 +185,7 @@ void machine_view::start_view() {
     while (key != 30)
     {
         cv::Mat src = hwnd2mat(hwndDesktop);
-        // you can do some image processing here
+        // image processing here
         if (key == 'a') {
             try {
                 src = machine_vision(src);
@@ -200,7 +195,7 @@ void machine_view::start_view() {
             }
         }
         imshow("output", src);
-        key = cv::waitKey(30); // you can change wait time
+        key = cv::waitKey(30); // wait time
         if (key == 0) {
             break;
         }

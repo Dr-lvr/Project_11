@@ -3,9 +3,9 @@
 #include <string>
 #include <iomanip>
 #include <vector>
-#include <map>
 #include <codecvt>
 #include <locale>
+#include <map>
 
 #include "kernel.h"
 void kernel::move(int x, int y) {
