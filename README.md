@@ -1,11 +1,12 @@
 # ConsoleApplication11
-TODO RELEASE ALPHA 0.0x
+<details><summary>TODO RELEASE ALPHA 0.0x</summary>
+<p>
 
 - [ ] ASSEMBLY:     add some operators and loops
 - [x] DATABASE:     database sample connected and tested
 - [ ] DATABASE:     design first RDBTest 
 - [ ] DICTIONARY:   <del>complete symbols table for dictionary</del>
-- [x] DICTIONARY:   improved string to send input translation
+- [x] DICTIONARY:   improved string processing to send input translation
 - [ ] FILESYSTEM:   environment monitor and filesystem hilevel control [OPTIONAL]
 - [ ] FILESYSTEM:   enable sub-directoring
 - [x] GUI:          framework connected
@@ -20,3 +21,5 @@ TODO RELEASE ALPHA 0.0x
 - [ ] UIX:          batch execution of scripts
 - [ ] UIX:          edit existing file feature
 - [ ] VOCAL RECOG:  start sampling [OPTIONAL]
+</p>
+</details>
