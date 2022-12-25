@@ -13,7 +13,7 @@ void engine::get_macro(std::string arg) {
     std::fstream file_reader;
     std::string executable = "scripts/" + arg;
     file_reader.open(executable, std::ios::in);         //open a file to perform read operation using file object
-    if (file_reader.is_open()) {                        //checking whether the file is open
+    if (file_reader.is_open()) {                       //checking whether the file is open
         std::string tp;
         while (getline(file_reader, tp)) {              //read data from file object and put it into string.
             if (tp == "") continue;

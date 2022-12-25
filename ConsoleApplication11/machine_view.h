@@ -8,9 +8,13 @@
 class machine_view
 {
 public:
-	int machine_view_test();
+	//int machine_view_test();
+	cv::Mat machine_view_test(cv::Mat src);
 	void start_view();
 private:
+	inline static const char* image_window = "Source Image";
+	inline static const char* result_window = "Result window";
+	/*
 	inline static bool use_mask;
 	inline static cv::Mat img;
 	inline static cv::Mat templ;
@@ -22,6 +26,7 @@ private:
 	static void MatchingMethod(int, void*);
 
 	int max_Trackbar = 5;
+	*/
 	cv::Mat hwnd2mat(HWND hwnd);
 };
 
