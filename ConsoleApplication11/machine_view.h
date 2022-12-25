@@ -13,6 +13,7 @@ private:
 	inline static const char* image_window = "Source Image";
 	inline static const char* result_window = "Result window";
 	void show_match_histogram(std::string src_name, cv::Mat src);
+	double compare_histogram(cv::Mat template_hist, cv::Mat comparison);
 	cv::Mat machine_vision(cv::Mat src);
 	cv::Mat hwnd2mat(HWND hwnd);
 };

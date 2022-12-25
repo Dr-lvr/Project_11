@@ -67,8 +67,9 @@ cv::Mat machine_view::hwnd2mat(HWND hwnd){
 cv::Mat machine_view::machine_vision(cv::Mat src) {
 
     kernel k;
+    std::vector<std::pair<cv::Point, double>> pseudo_tensor;
     //! [load_images]
-    const std::string img2 = "C:/Users/david/Desktop/test/howl.jpg";
+    const std::string img2 = "C:/Users/david/Desktop/test/otto.jpg";
     cv::Mat screen=src;
     cv::Mat cvt = cv::imread(img2, cv::IMREAD_COLOR);
     //! [load_images]
@@ -95,7 +96,8 @@ cv::Mat machine_view::machine_vision(cv::Mat src) {
     cv::Mat res;
     res.create(result_rows, result_cols, CV_32FC1);
 
-    show_match_histogram("template", tmp);
+    //! [template monitor]
+    //show_match_histogram("template", tmp);
     for (int i = 0; i < 6; ++i) {
         cv::matchTemplate(screen, tmp, res, i);
 
@@ -125,10 +127,20 @@ cv::Mat machine_view::machine_vision(cv::Mat src) {
 
         //processing match with histograms
         cv::Mat submat = cv::Mat(img_display, cv::Rect(matchLoc, cv::Point(matchLoc.x + tmp.cols, matchLoc.y + tmp.rows)));
-        show_match_histogram(std::to_string(i), submat);
+        //! [match monitor]
+        //show_match_histogram(std::to_string(i), submat);
+        //compare_histogram(tmp, submat);
 
+        pseudo_tensor.push_back(
+            std::make_pair(
+                cv::Point((matchLoc.x + (matchLoc.x + tmp.cols)) / 2, (matchLoc.y + (matchLoc.y + tmp.rows)) / 2), 
+                compare_histogram(tmp, submat)));
+    }
+    for (auto a : pseudo_tensor) {
         //....if submat ok move
-        k.move((matchLoc.x+(matchLoc.x + tmp.cols))/2, (matchLoc.y+(matchLoc.y + tmp.rows))/2);
+        if (a.second >= 0.5) {
+            k.move(a.first.x, a.first.y);
+        }
     }
     imshow(image_window, img_display);
     imshow(result_window, res);
@@ -175,6 +187,40 @@ void machine_view::show_match_histogram(std::string tmp_name, cv::Mat tmp) {
     }
     cv::imshow(tmp_name, histImage);
     //cv::waitKey();
+}
+double machine_view::compare_histogram(cv::Mat template_hist, cv::Mat comparison) {
+
+    cv::Mat src_base = template_hist;
+    cv::Mat src_test1 = comparison;
+
+    cv::Mat hsv_base, hsv_test1;
+    cv::cvtColor(src_base, hsv_base, cv::COLOR_BGR2HSV);
+    cv::cvtColor(src_test1, hsv_test1, cv::COLOR_BGR2HSV);
+
+    int h_bins = 50, s_bins = 60;
+    int histSize[] = { h_bins, s_bins };
+    // hue varies from 0 to 179, saturation from 0 to 255
+    float h_ranges[] = { 0, 180 };
+    float s_ranges[] = { 0, 256 };
+    const float* ranges[] = { h_ranges, s_ranges };
+    // Use the 0-th and 1-st channels
+    int channels[] = { 0, 1 };
+    cv::Mat hist_base, hist_test1;
+    cv::calcHist(&hsv_base, 1, channels, cv::Mat(), hist_base, 2, histSize, ranges, true, false);
+    cv::normalize(hist_base, hist_base, 0, 1, cv::NORM_MINMAX, -1, cv::Mat());
+    cv::calcHist(&hsv_test1, 1, channels, cv::Mat(), hist_test1, 2, histSize, ranges, true, false);
+    cv::normalize(hist_test1, hist_test1, 0, 1, cv::NORM_MINMAX, -1, cv::Mat());
+
+    double base_test1= compareHist(hist_base, hist_test1, 0);
+    /*
+    for (int compare_method = 0; compare_method < 4; compare_method++)
+    {
+        base_test1 = compareHist(hist_base, hist_test1, compare_method);
+        std::cout << "Method " << compare_method << " Base-Test: " << " / " << base_test1 << " / " << std::endl;
+    }
+    std::cout << "Done \n";
+    */
+    return base_test1;
 }
 void machine_view::start_view() {
     HWND hwndDesktop = GetDesktopWindow();
