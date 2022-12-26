@@ -9,8 +9,4 @@
 int main(){
 	uix menu;
 	menu.get_choice();
-	//db_test::test_navigation();
-
-	//machine_view mv;
-	//mv.start_view();
 }

@@ -45,6 +45,7 @@ void engine::interpret(std::string str) {
         bot.move(stoi(command_dqe[1]), stoi(command_dqe[2]));
         break;
     case commands::go:
+        //tested.....now needs to recursively evaluate context
         it = nav_map.find(std::make_pair(command_dqe[1], command_dqe[2]));
         if (it != nav_map.end()){
             c_move = mv.start_view(it->second);
