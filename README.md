@@ -22,6 +22,7 @@
 
 <details><summary>TODO RELEASE ALPHA 0.0x</summary>
 <p>
+  
 - [x] DATABASE:     <del>database sample connected and tested</del>
 - [ ] DATABASE:     design first RDBTest
 - [x] DATABASE:     designed the first test database which, relying on the filesystem, takes care of the storage and retriving of patterns that are passed to the system for labeling and identification
@@ -43,5 +44,6 @@
 - [ ] UIX:          batch execution of scripts
 - [ ] UIX:          edit existing file feature
 - [ ] VOCAL RECOG:  start sampling [OPTIONAL]
+  
 </p>
 </details>
