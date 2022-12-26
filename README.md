@@ -1,5 +1,13 @@
 # Project_11
 
+<details><summary>CODE-BASE REVISION</summary>
+<p>
+
+- [] 26/12/2022 
+
+</p>
+</details>
+
 <details><summary>PROJECT STRUCTURE</summary>
 <p>
 
@@ -14,13 +22,13 @@
 
 <details><summary>TODO RELEASE ALPHA 0.0x</summary>
 <p>
-
-- [ ] ASSEMBLY:     add some operators and loops
-- [x] DATABASE:     database sample connected and tested
-- [x] DATABASE:     design first RDBTest
+- [x] DATABASE:     <del>database sample connected and tested</del>
+- [ ] DATABASE:     design first RDBTest
 - [x] DATABASE:     designed the first test database which, relying on the filesystem, takes care of the storage and retriving of patterns that are passed to the system for labeling and identification
 - [ ] DICTIONARY:   <del>complete symbols table for dictionary</del>
 - [x] DICTIONARY:   improved string processing to send input translation
+- [ ] ENGINE  :     add operators and loops management
+- [x] ENGINE:       added the first commanand [GO] powerd by computer vision
 - [ ] FILESYSTEM:   environment monitor and filesystem hilevel control [OPTIONAL]
 - [ ] FILESYSTEM:   enable sub-directoring
 - [x] GUI:          framework connected
