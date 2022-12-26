@@ -35,7 +35,7 @@
 - [x] GUI:          framework connected
 - [ ] GUI:          first interface for wrap the program and manage local version
 - [x] INPUT:        insertion improved
-- [ ] KERNEL:       map direct commands by keyboard https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
+- [x] KERNEL:       [PARTIAL] map direct commands by keyboard https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
 - [x] machine_view: start sampling for conditional programming
 - [x] machine_view: added method for handle windows frame to cv::Mat
 - [x] machine_view: added method for create and display histograms
