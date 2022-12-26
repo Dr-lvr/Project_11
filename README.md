@@ -23,9 +23,9 @@
 <details><summary>TODO RELEASE ALPHA 0.0x</summary>
 <p>
   
-- [x] DATABASE:     <del>database sample connected and tested</del>
-- [ ] DATABASE:     design first RDBTest
-- [x] DATABASE:     designed the first test database which, relying on the filesystem, takes care of the storage and retriving of patterns that are passed to the system for labeling and identification
+- [x] DATABASE:     database sample connected and tested
+- [ ] DATABASE:     <del>design first RDBTest</del>
+- [x] DATABASE:     test db/table which, relying on the filesystem, takes care of the storage and retriving of patterns that are passed to the system for labeling and identification
 - [ ] DICTIONARY:   <del>complete symbols table for dictionary</del>
 - [x] DICTIONARY:   improved string processing to send input translation
 - [ ] ENGINE  :     add operators and loops management
