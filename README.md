@@ -41,6 +41,7 @@
 - [x] machine_view: added method for create and display histograms
 - [x] machine_view: added main method for parse frames, find matches, evaluate histograms
 - [x] machine_view: added bootstrap
+- [ ] MAPPING:      start study view mapping for data retrival
 - [ ] UIX:          batch execution of scripts
 - [ ] UIX:          edit existing file feature
 - [ ] VOCAL RECOG:  start sampling [OPTIONAL]
