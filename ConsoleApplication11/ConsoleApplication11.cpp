@@ -7,11 +7,10 @@
 #include "machine_view.h"
 
 int main(){
-	//uix menu;
-	//menu.get_choice();
-	//db_test a;
-	//a.test_ascii();
+	uix menu;
+	menu.get_choice();
+	//db_test::test_navigation();
 
-	machine_view mv;
-	mv.start_view();
+	//machine_view mv;
+	//mv.start_view();
 }

@@ -8,13 +8,14 @@
 class machine_view
 {
 public:
-	void start_view();
+	std::pair<int, int> start_view(std::string path);
 private:
+	bool show_monitors = false;
 	inline static const char* image_window = "Source Image";
 	inline static const char* result_window = "Result window";
 	void show_match_histogram(std::string src_name, cv::Mat src);
 	double compare_histogram(cv::Mat template_hist, cv::Mat comparison);
-	cv::Mat machine_vision(cv::Mat src);
+	std::vector<std::pair<cv::Point, double>> machine_vision(cv::Mat src, std::string path);
 	cv::Mat hwnd2mat(HWND hwnd);
 };
 

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <utility>
 #include <string>
 #include <deque>
 
@@ -26,6 +27,8 @@ void engine::get_macro(std::string arg) {
     }
 }
 void engine::interpret(std::string str) {
+    machine_view mv;
+    auto it = nav_map.find(std::make_pair("desktop", "discord"));
     std::stringstream ss(str);
     std::stringstream echo_stream;
     std::string token;
@@ -40,6 +43,18 @@ void engine::interpret(std::string str) {
         break;
     case commands::move:
         bot.move(stoi(command_dqe[1]), stoi(command_dqe[2]));
+        break;
+    case commands::go:
+        it = nav_map.find(std::make_pair(command_dqe[1], command_dqe[2]));
+        if (it != nav_map.end()){
+            c_move = mv.start_view(it->second);
+        }
+        if (c_move.first != -1 && c_move.second != -1) {
+            bot.move(c_move.first, c_move.second);
+        }
+        else {
+            std::cout << "ERROR: in commands::go, move not found" << std::endl;
+        }
         break;
     case commands::write:
         for (size_t i = 1; i < command_dqe.size(); ++i) {

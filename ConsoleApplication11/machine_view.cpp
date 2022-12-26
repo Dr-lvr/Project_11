@@ -12,6 +12,7 @@
 #include <utility>
 
 #include "kernel.h"
+#include "db_test.h"
 
 cv::Mat machine_view::hwnd2mat(HWND hwnd){
 
@@ -64,27 +65,27 @@ cv::Mat machine_view::hwnd2mat(HWND hwnd){
 
     return src;
 }
-cv::Mat machine_view::machine_vision(cv::Mat src) {
+std::vector<std::pair<cv::Point, double>> machine_view::machine_vision(cv::Mat src, std::string path) {
 
     kernel k;
     std::vector<std::pair<cv::Point, double>> pseudo_tensor;
     //! [load_images]
-    const std::string img2 = "C:/Users/david/Desktop/test/otto.jpg";
+    const std::string img2 = path; //image path
     cv::Mat screen=src;
     cv::Mat cvt = cv::imread(img2, cv::IMREAD_COLOR);
     //! [load_images]
     //! [convert2depth24]
     cv::Mat tmp;
     cv::cvtColor(cvt, tmp, cv::COLOR_BGR2BGRA);
+    if (show_monitors) {
+        //! [create_windows]
+        cv::namedWindow(image_window, cv::WINDOW_AUTOSIZE);
+        cv::namedWindow(result_window, cv::WINDOW_AUTOSIZE);
 
-    //! [create_windows]
-    cv::namedWindow(image_window, cv::WINDOW_AUTOSIZE);
-    cv::namedWindow(result_window, cv::WINDOW_AUTOSIZE);
-
-    cv::moveWindow(image_window, 1918, 205);
-    cv::moveWindow(result_window, 1918, 205);
-    //! [create_windows]
-
+        cv::moveWindow(image_window, 1918, 205);
+        cv::moveWindow(result_window, 1918, 205);
+        //! [create_windows]
+    }
     cv::Mat img_display;
     screen.copyTo(img_display);
     //! [copy_source]
@@ -122,32 +123,37 @@ cv::Mat machine_view::machine_vision(cv::Mat src) {
         //! [match_loc]
 
         //! [imshow]
-        rectangle(img_display, matchLoc, cv::Point(matchLoc.x + tmp.cols, matchLoc.y + tmp.rows), cv::Scalar(0, 255, 9), 2, 8, 0);
-        rectangle(res, matchLoc, cv::Point(matchLoc.x + tmp.cols, matchLoc.y + tmp.rows), cv::Scalar(0, 255, 9), 2, 8, 0);
+        if (show_monitors) {
+            rectangle(img_display, matchLoc, cv::Point(matchLoc.x + tmp.cols, matchLoc.y + tmp.rows), cv::Scalar(0, 255, 9), 2, 8, 0);
+            rectangle(res, matchLoc, cv::Point(matchLoc.x + tmp.cols, matchLoc.y + tmp.rows), cv::Scalar(0, 255, 9), 2, 8, 0);
+        }
 
         //processing match with histograms
         cv::Mat submat = cv::Mat(img_display, cv::Rect(matchLoc, cv::Point(matchLoc.x + tmp.cols, matchLoc.y + tmp.rows)));
         //! [match monitor]
         //show_match_histogram(std::to_string(i), submat);
         //compare_histogram(tmp, submat);
-
         pseudo_tensor.push_back(
             std::make_pair(
                 cv::Point((matchLoc.x + (matchLoc.x + tmp.cols)) / 2, (matchLoc.y + (matchLoc.y + tmp.rows)) / 2), 
                 compare_histogram(tmp, submat)));
     }
-    for (auto a : pseudo_tensor) {
+    /*
+    for (auto &a : pseudo_tensor) {
         //....if submat ok move
+        std::cout << a.second << std::endl;
         if (a.second >= 0.5) {
             k.move(a.first.x, a.first.y);
         }
     }
-    imshow(image_window, img_display);
-    imshow(result_window, res);
-
+    */
+    if (show_monitors) {
+        imshow(image_window, img_display);
+        imshow(result_window, res);
+    }
     //! [wait_key]
-    cv::waitKey(100);
-    return res;
+    //cv::waitKey(100);
+    return pseudo_tensor;
     //! [wait_key]
 }
 void machine_view::show_match_histogram(std::string tmp_name, cv::Mat tmp) {
@@ -185,7 +191,9 @@ void machine_view::show_match_histogram(std::string tmp_name, cv::Mat tmp) {
             cv::Point(bin_w * (i), hist_h - cvRound(r_hist.at<float>(i))),
             cv::Scalar(0, 0, 255), 2, 8, 0);
     }
-    cv::imshow(tmp_name, histImage);
+    if (show_monitors) {
+        cv::imshow(tmp_name, histImage);
+    }
     //cv::waitKey();
 }
 double machine_view::compare_histogram(cv::Mat template_hist, cv::Mat comparison) {
@@ -222,30 +230,45 @@ double machine_view::compare_histogram(cv::Mat template_hist, cv::Mat comparison
     */
     return base_test1;
 }
-void machine_view::start_view() {
+std::pair<int, int> machine_view::start_view(std::string path) {
+    std::vector<std::pair<cv::Point, double>> pseudo_tensor;
     HWND hwndDesktop = GetDesktopWindow();
-    namedWindow("output", cv::WINDOW_FULLSCREEN);
-    cv::moveWindow("output", 1366, 0);
+    if (show_monitors) {
+        namedWindow("output", cv::WINDOW_FULLSCREEN);
+        cv::moveWindow("output", 1366, 0);
+    }
     int key = 0;
-
-    while (key != 30)
-    {
-        cv::Mat src = hwnd2mat(hwndDesktop);
-        // image processing here
-        if (key == 'a') {
-            try {
-                src = machine_vision(src);
-            }
-            catch (const std::exception& ex) {
-                std::cout << ex.what() << std::endl;
-            }
-        }
+    //while (key != 30)
+    //{
+    cv::Mat src = hwnd2mat(hwndDesktop);
+    // image processing here
+    //if (key == 'a') {
+    try {
+        pseudo_tensor = machine_vision(src, path);
+    }
+    catch (const std::exception& ex) {
+        std::cout << ex.what() << std::endl;
+    }
+    //}
+    if (show_monitors) {
         imshow("output", src);
-        key = cv::waitKey(30); // wait time
-        if (key == 0) {
-            break;
+    }
+        //key = cv::waitKey(30); // wait time
+        //if (key == 0) {
+        //    break;
+        //}
+    //}
+    ReleaseCapture();
+    if (show_monitors) {
+        cv::destroyAllWindows();
+    }
+    //check elaboration
+    for (auto& a : pseudo_tensor) {
+        //....if submat ok move
+        //std::cout << a.second << std::endl;
+        if (a.second >= 0.5) {
+            return std::make_pair(a.first.x, a.first.y);
         }
     }
-    ReleaseCapture();
-    cv::destroyAllWindows();
+    return std::make_pair(-1, -1);
 }

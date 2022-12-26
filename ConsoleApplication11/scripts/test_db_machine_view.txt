@@ -1,0 +1,12 @@
+go desktop discord
+click
+go desktop files
+click
+go desktop firefox
+click
+go desktop powershell
+click
+go desktop vs22
+click
+go desktop win
+click
