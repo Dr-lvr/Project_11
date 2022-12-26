@@ -1,10 +1,24 @@
 # Project_11
+
+<details><summary>PROJECT STRUCTURE</summary>
+<p>
+
+- [X] KERNEL
+- [X] ENGINE
+- [X] VISION
+- [X] DATABASE
+- [ ] GUI
+
+</p>
+</details>
+
 <details><summary>TODO RELEASE ALPHA 0.0x</summary>
 <p>
 
 - [ ] ASSEMBLY:     add some operators and loops
 - [x] DATABASE:     database sample connected and tested
-- [ ] DATABASE:     design first RDBTest 
+- [x] DATABASE:     design first RDBTest
+- [x] DATABASE:     designed the first test database which, relying on the filesystem, takes care of the storage and retriving of patterns that are passed to the system for labeling and identification
 - [ ] DICTIONARY:   <del>complete symbols table for dictionary</del>
 - [x] DICTIONARY:   improved string processing to send input translation
 - [ ] FILESYSTEM:   environment monitor and filesystem hilevel control [OPTIONAL]
