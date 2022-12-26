@@ -57,6 +57,9 @@ void engine::interpret(std::string str) {
             std::cout << "ERROR: in commands::go, move not found" << std::endl;
         }
         break;
+    case commands::control:
+        bot.c_key(command_dqe[1]);
+        break;
     case commands::write:
         for (size_t i = 1; i < command_dqe.size(); ++i) {
             if (command_dqe[i] != "\"") {

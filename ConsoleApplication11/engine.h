@@ -8,7 +8,7 @@
 #include "machine_view.h"
 
 enum class commands {
-	move, click, write, go
+	move, click, write, go, control
 };
 class engine
 {
@@ -19,7 +19,7 @@ private:
 	void interpret(std::string string);
 	std::pair<int, int> c_move = std::make_pair(-1, -1);
 	std::map<std::string, commands> command_map{
-	{"move", commands::move}, {"click", commands::click}, {"echo", commands::write}, {"go", commands::go}
+	{"move", commands::move}, {"click", commands::click}, {"echo", commands::write}, {"go", commands::go}, {"control", commands::control}
 	};
 	std::map<std::pair<std::string, std::string>, std::string> nav_map = db_test::test_navigation();
 };

@@ -81,7 +81,7 @@ std::map<std::pair<std::string, std::string>, std::string> db_test::test_navigat
     sql::ResultSet* res;
     stmt = con->createStatement();
 
-    res = stmt->executeQuery("SELECT * FROM basic_navigation_test WHERE context=\"desktop\"");
+    res = stmt->executeQuery("SELECT * FROM basic_navigation_test");
     while (res->next()) {
         nav_map.insert({std::make_pair(res->getString("context"), res->getString("description")), res->getString("path")});
         std::cout << res->getString("context") << " " << res->getString("description") << " " << res->getString("path") << std::endl;

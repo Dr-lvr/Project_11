@@ -1,0 +1,10 @@
+go desktop firefox
+click
+go broswer search
+click
+echo amazon.it
+control enter
+go amazon search
+click
+echo blackview
+control enter
